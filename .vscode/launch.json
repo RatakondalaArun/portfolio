@@ -1,0 +1,31 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Server nodemon",
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/server/",
+      "localRoot": "${workspaceFolder}/server/",
+      "envFile": "${workspaceFolder}/server/.env", // loads this .env file to the environment
+      "program": "${workspaceFolder}/server/server.js",
+      "internalConsoleOptions": "openOnSessionStart", // opends debug console
+      "request": "launch",
+      "restart": true,
+      "runtimeExecutable": "nodemon",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "runtimeArgs": [
+        "-q" // silents nodemon output
+      ],
+      "env": {
+        "NODE_ENV": "development",
+        "PORT": "80"
+      },
+      "type": "pwa-node"
+    },
+  ]
+}
