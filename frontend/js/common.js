@@ -26,11 +26,18 @@ window.onload = (_) => {
     { name: '🔧projects', link: 'projects.html' },
   ];
   const footerEle = document.createElement('footer');
+  footerEle.style.alignItems = 'center';
+  footerEle.style.textAlign = 'center';
+  let index = 1;
   for (const page of siteMap) {
     const site = document.createElement('span');
     site.innerHTML = `<a href="${page.link}">${page.name}</a>`;
-    site.innerHTML += ' |';
     footerEle.appendChild(site);
+    if (index === siteMap.length) continue;
+    const seperator = document.createElement('span');
+    seperator.innerText = '|';
+    footerEle.appendChild(seperator);
+    index++;
   }
   document.querySelector('#nav-menu')?.appendChild(footerEle);
 };

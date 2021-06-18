@@ -34,5 +34,6 @@ async function loadBlog() {
   blogEle.innerHTML = blogHtmlContent;
 
   document.querySelector('#content').appendChild(blogEle);
+  document.querySelector('#loading').remove();
 }
 loadBlog();
