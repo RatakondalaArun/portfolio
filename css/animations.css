@@ -1,0 +1,48 @@
+.fadein-ani {
+  animation-duration: 500ms;
+  animation-name: fadein;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.slidein-ani {
+  animation-duration: 500ms;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    offset: 10px;
+  }
+
+  to {
+    offset: 0px;
+  }
+}
+
+.loading-ani {
+  background-color: rebeccapurple;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  animation-duration: 0.7s;
+  animation-name: loading-ani;
+  animation-iteration-count: infinite;
+}
+
+@keyframes loading-ani {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,38 @@
+.project-title {
+  font-size: 20px;
+}
+
+.project-description {
+  font-size: 16px;
+}
+
+h1 {
+  color: black;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+h2 {
+  color: rgb(52, 50, 50);
+  font-size: 30px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+li {
+  font-size: 18px;
+  font-weight: 200;
+}
+
+b {
+  font-size: 15px;
+  font-weight: 300;
+}
+
+footer {
+  height: 50px;
+}
