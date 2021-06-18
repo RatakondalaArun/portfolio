@@ -34,7 +34,7 @@ function Blog(blog) {
   const blogEle = document.createElement('div');
   blogEle.classList.add('fadein-ani');
   blogEle.innerHTML = `
-  <a href="/blog.html?name=${name}"><h2>${name}</h2></a>
+  <a href="blog.html?name=${name}"><h2>${name}</h2></a>
   `;
   return blogEle;
 }
