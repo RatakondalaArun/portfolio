@@ -1,0 +1,23 @@
+name: Gh Pages
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "frontend/**"
+
+jobs:
+  deploy:
+    name: 📄 Publish Page
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.4
+
+      - name: 🌳 tree
+        run: tree
+
+      - name: 📢 Publish Page
+        uses: JamesIves/github-pages-deploy-action@4.1.2
+        with:
+          branch: gh-pages
+          folder: front-end
