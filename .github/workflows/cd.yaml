@@ -8,7 +8,7 @@ on:
 
 jobs:
   heroku-cd:
-    name: 📄 Publish Page
+    name: 📄 Heroku cd
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
