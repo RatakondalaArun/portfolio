@@ -21,9 +21,9 @@ function httpRequest({ method, url, headers, body }) {
 // adds footer for each page
 window.onload = (_) => {
   const siteMap = [
-    { name: '🏡home', link: '/' },
-    { name: '🧾blogs', link: '/blogs.html' },
-    { name: '🔧projects', link: '/projects.html' },
+    { name: '🏡home', link: 'index.html' },
+    { name: '🧾blogs', link: 'blogs.html' },
+    { name: '🔧projects', link: 'projects.html' },
   ];
   const footerEle = document.createElement('footer');
   for (const page of siteMap) {

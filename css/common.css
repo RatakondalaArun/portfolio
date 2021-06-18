@@ -56,3 +56,17 @@ footer > span:first-child {
 footer > span:last-child {
   padding-right: 0px !important;
 }
+
+/* mobiles */
+@media screen and (max-height: 750px) {
+  .space {
+    height: 10px;
+  }
+}
+
+/* ipads */
+@media screen and (min-height: 750px) and (max-height: 1010px) {
+  .space {
+    height: 20px;
+  }
+}
