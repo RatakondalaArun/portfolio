@@ -20,7 +20,7 @@ async function getProjects() {
     pinnedRepos = JSON.parse(data);
     const projectsEle = document.getElementById('projects');
     projectsEle.classList.add('fadein-ani');
-    projectsEle.innerHTML = `<h2>Projects</h2>`;
+    projectsEle.innerHTML = `<h2>🔧Projects</h2>`;
     for (const repo of pinnedRepos) {
       if (repo.owner !== 'RatakondalaArun') continue;
       projectsEle.appendChild(Repo(repo));
