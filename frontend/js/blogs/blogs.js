@@ -61,6 +61,7 @@ function filterSearchs(searchKey) {
       ele.classList.remove('matched');
       ele.classList.remove('unmatched');
     }
+    document.getElementById('search-info').hidden = true;
     return;
   }
 
