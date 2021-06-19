@@ -35,8 +35,8 @@ async function loadBlogs() {
     // const mock = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v) => {
     //   return { name: `${v}-helloworld` };
     // });
+    // const files = mock;
     const files = await getBlogs();
-    const files = mock;
     for (const file of files) {
       blogsEle.appendChild(Blog(file));
     }
