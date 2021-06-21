@@ -68,7 +68,7 @@ function filterSearchs(searchKey) {
   let matches = 0;
   for (const blog of loadedBlogs) {
     const element = document.getElementById(blog.name);
-    if (blog.name.includes(searchKey)) {
+    if (blog.name.toLowerCase().includes(searchKey.toLowerCase())) {
       element.classList.add('matched');
       element.classList.remove('unmatched');
       ++matches;
