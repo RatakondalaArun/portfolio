@@ -41,3 +41,5 @@ window.onload = (_) => {
   }
   document.querySelector('#nav-menu')?.appendChild(footerEle);
 };
+
+console.log('Looking for source code🕵️‍♂️ you can find it at https://github.com/RatakondalaArun/portfolio');
