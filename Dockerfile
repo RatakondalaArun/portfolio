@@ -11,7 +11,6 @@ RUN npm install --prefix server/
 
 EXPOSE 80
 
-# CMD [ "node", "server/server.js" ]
 
 RUN chmod +x deploy.sh
 
