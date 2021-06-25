@@ -21,7 +21,7 @@ jobs:
           heroku_app_name: ra-p-api
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
-          userdocker: true
+          usedocker: true
 
   deploy-to-gh-pages:
     name: 📄 Publish Page
