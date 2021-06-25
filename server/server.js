@@ -2,7 +2,9 @@ import express from 'express';
 import { graphql } from '@octokit/graphql';
 import morgan from 'morgan';
 import axios from 'axios';
-import { starredRepoQuery } from './src/queries.js';
+import path from 'path';
+
+import { starredRepoQuery, blogsQuery } from './src/queries.js';
 
 const app = express();
 const githubGql = graphql.defaults({
@@ -12,8 +14,7 @@ const githubGql = graphql.defaults({
 });
 
 app.use(morgan('dev'));
-app.use(express.static('../frontend'));
-
+app.use('/', express.static(path.resolve('../frontend')));
 app.use(express.json());
 
 app.get('/api/repos/pinned', async (_, res) => {
@@ -29,10 +30,10 @@ app.get('/api/repos/pinned', async (_, res) => {
         description: node.description,
         stargazerCount: node.stargazerCount,
         latestRelease: {
-          name: node.releases.edges[0].node.name,
-          version: node.releases.edges[0].node.tagName,
-          url: node.releases.edges[0].node.url,
-          createdAt: node.releases.edges[0].node.createdAt,
+          name: node.releases.edges[0]?.node.name,
+          version: node.releases.edges[0]?.node.tagName,
+          url: node.releases.edges[0]?.node.url,
+          createdAt: node.releases.edges[0]?.node.createdAt,
         },
         languages: [{ name: node.languages.nodes[0].name, color: node.languages.nodes[0].color }],
       });
@@ -42,42 +43,14 @@ app.get('/api/repos/pinned', async (_, res) => {
       totalCount,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     res.status(500);
   }
 });
 
 app.get('/api/blogs', async (_, res) => {
   try {
-    const { repository } = await githubGql(`
-    query{
-      repository(name: "RatakondalaArun", owner: "RatakondalaArun") {
-        blogs: object(expression: "main:blogs") {
-          ... on Tree {
-            entries {
-              name
-              object {
-                ... on Tree {
-                  entries {
-                    name
-                    path
-                    content: object {
-                      ... on Blob {
-                        text
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-          ... on Blob {
-            text
-          }
-        }
-      }
-    }    
-    `);
+    const { repository } = await githubGql(blogsQuery);
     const blogs = repository.blogs.entries;
     const response = [];
     let index = blogs.length;

@@ -42,3 +42,33 @@ export const starredRepoQuery = `
     }
   }
 `;
+
+export const blogsQuery = `
+query{
+  repository(name: "RatakondalaArun", owner: "RatakondalaArun") {
+    blogs: object(expression: "main:blogs") {
+      ... on Tree {
+        entries {
+          name
+          object {
+            ... on Tree {
+              entries {
+                name
+                path
+                content: object {
+                  ... on Blob {
+                    text
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ... on Blob {
+        text
+      }
+    }
+  }
+}    
+`;
